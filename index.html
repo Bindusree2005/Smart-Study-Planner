@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Smart Study Planner</h1>
+      <div style="font-size:13px;color:var(--muted)">Local-first • Reminders • Timeline</div>
+    </header>
+
+    <!-- Add/Edit Task -->
+    <section class="card" aria-labelledby="create-task">
+      <h2 id="create-task">Add / Edit Task</h2>
+      <form id="taskForm">
+        <div>
+          <label for="title">Title</label>
+          <input id="title" required />
+        </div>
+        <div>
+          <label for="subject">Subject</label>
+          <input id="subject" />
+        </div>
+        <div>
+          <label for="due">Due date</label>
+          <input id="due" type="datetime-local" />
+        </div>
+        <div>
+          <label for="recurring">Recurring</label>
+          <select id="recurring">
+            <option value="none" selected>None</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+        <div>
+          <label for="estHours">Est. hours</label>
+          <input id="estHours" type="number" step="0.5" />
+        </div>
+        <div>
+          <label for="priority">Priority</label>
+          <select id="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div style="grid-column:span 2">
+          <label for="notes">Notes</label>
+          <textarea id="notes"></textarea>
+        </div>
+        <div class="controls">
+          <button type="submit">Save task</button>
+          <button type="button" class="ghost" id="clearAll">Clear all</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Main Layout -->
+    <div class="grid2">
+      <div>
+        <section class="card">
+          <h3>Tasks <span id="count"></span></h3>
+          <div id="taskList" class="task-list"></div>
+          <div class="progressWrap">
+            <span id="percent">0%</span>
+            <div class="progress"><i id="progressBar"></i></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h4>Upcoming reminders</h4>
+          <div id="upcoming" class="meta">No reminders scheduled.</div>
+        </section>
+      </div>
+
+      <aside>
+        <section class="card timeline">
+          <h4>Visual timeline</h4>
+          <div id="timelineArea"></div>
+        </section>
+
+        <section class="card">
+          <h4>Pomodoro Timer</h4>
+          <div id="pomodoroDisplay">25:00</div>
+          <button id="startPomodoro">Start</button>
+          <button id="resetPomodoro">Reset</button>
+        </section>
+
+        <section class="card">
+          <h4>Quick actions</h4>
+          <button id="sortDue" class="ghost">Sort by due date</button>
+          <button id="sortPriority" class="ghost">Sort by priority</button>
+          <button id="export" class="ghost">Export JSON</button>
+          <button id="importBtn" class="ghost">Import JSON</button>
+          <button id="printPlanner" class="ghost">Print Planner</button>
+          <input id="importFile" type="file" accept="application/json" hidden />
+        </section>
+      </aside>
+    </div>
+
+    <footer>Tip: Allow browser notifications for reminders. Data stays in your browser (localStorage).</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Study Planner</title>
+
+  <!--  CSS link goes here -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📘 Smart Study Planner</h1>
+
+  <!-- Example planner UI -->
+  <form id="taskForm">
+    <input type="text" id="taskInput" placeholder="Enter study task">
+    <input type="date" id="taskDate">
+    <button type="submit">Add Task</button>
+  </form>
+
+  <ul id="taskList"></ul>
+
+  <!--  JS link goes here -->
+  <script src="script.js" defer></script>
+</body>
+</html>
+<form id="taskForm">
+  <input type="text" id="taskInput" placeholder="Enter study task" required>
+  <input type="date" id="taskDate" required>
+
+  <!--  New: recurrence dropdown -->
+  <select id="taskRepeat">
+    <option value="none">No Repeat</option>
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+  </select>
+
+  <button type="submit">Add Task</button>
+</form>
+
+<ul id="taskList"></ul>
