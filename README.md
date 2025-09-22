@@ -48,6 +48,7 @@ Future Enhancements
 📊 Progress visualization
 
 Usage:
+
 Open the application and set up your study plan.
 Add subjects, tasks, and schedule times.
 Check progress regularly and follow reminders.
