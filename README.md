@@ -3,7 +3,7 @@
 A simple, browser-based study planner that helps students organize schedules, track academic tasks, and boost productivity.
 Built with HTML, CSS, and JavaScript (Local Storage) so all tasks are saved locally without needing a server.
 
-## Features
+
 
 ✨ Features
 
